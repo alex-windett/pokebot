@@ -7,7 +7,8 @@ post '/' do
 
     content_type :json
 
-    app_token       = "czvnMuWiuu6GkJ3b2U2ancdc"
+    # app_token       = "czvnMuWiuu6GkJ3b2U2ancdc"
+    app_token       = ENV["APP_TOKEN"]
     client_token    = params.fetch("token")
     text            = params.fetch('text').strip
     user            = params.fetch('user_name')
