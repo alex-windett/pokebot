@@ -5,8 +5,6 @@ require 'httparty'
 
 post '/' do
 
-# binding.pry
-
     content_type :json
 
     text = params.fetch('text').strip
