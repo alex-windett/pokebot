@@ -14,19 +14,21 @@ post '/' do
 
     response        = HTTParty.get("http://pokeapi.co/api/v2/pokemon/#{text}/")
 
-    pokemon_name    = response.name
-    pokemon_iamge   = response.sprites.front_default
+    pokemon_name    = response["name"]
+    pokemon_iamge   = response["sprites"]["front_default"]
 
     {
         "channel"       => params.fetch("channel_id"),
         "response_type" => "in_channel",
         "username"      => user,
         "text"          => "<!channel> \n#{user} just spotted a *#{text}*",
-        "attachments"   => {
-            "color"     => "#36a64f",
-            "title"     => "#{pokemon_name}",
-            "image_url" => "#{pokemon_iamge}"
-        }
+        "attachments"   => [
+            {
+                "color"     => "#36a64f",
+                "title"     => "#{pokemon_name}",
+                "image_url" => "#{pokemon_iamge}"
+            }
+        ]
     }.to_json
 
 end

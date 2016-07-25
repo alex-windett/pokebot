@@ -5,8 +5,12 @@ GEM
     coderay (1.1.1)
     foreman (0.82.0)
       thor (~> 0.19.1)
+    httparty (0.13.7)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     json (1.8.3)
     method_source (0.8.2)
+    multi_xml (0.5.5)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -30,6 +34,7 @@ PLATFORMS
 
 DEPENDENCIES
   foreman
+  httparty
   json
   pry-byebug
   rack
