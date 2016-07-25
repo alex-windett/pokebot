@@ -7,12 +7,23 @@ post '/' do
 
     content_type :json
 
-    text = params.fetch('text').strip
-    user = params.fetch('user_name')
-
+    app_token       = "czvnMuWiuu6GkJ3b2U2ancdc"
+    client_token    = params.fetch("token")
+    text            = params.fetch('text').strip
+    user            = params.fetch('user_name')
     response        = HTTParty.get("http://pokeapi.co/api/v2/pokemon/#{text}/")
     pokemon_name    = response["name"]
 
+    # Check the tokens match
+    if client_token != app_token
+        {
+            "text"          => "Reponse tokens do not match, please check they are correct.",
+        }.to_json
+
+        return
+    end
+
+    # Check if the pokemon excists, and return response
     if pokemon_name
 
         pokemon_image   = response["sprites"]["front_default"]
