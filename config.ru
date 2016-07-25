@@ -15,7 +15,7 @@ post '/' do
     response        = HTTParty.get("http://pokeapi.co/api/v2/pokemon/#{text}/")
 
     pokemon_name    = response["name"]
-    pokemon_iamge   = response["sprites"]["front_default"]
+    pokemon_image   = response["sprites"]["front_default"]
 
     {
         "channel"       => params.fetch("channel_id"),
@@ -26,7 +26,7 @@ post '/' do
             {
                 "color"     => "#36a64f",
                 "title"     => "#{pokemon_name}",
-                "image_url" => "#{pokemon_iamge}"
+                "image_url" => "#{pokemon_image}"
             }
         ]
     }.to_json
