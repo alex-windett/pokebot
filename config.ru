@@ -21,7 +21,7 @@ post '/' do
         "channel"       => params.fetch("channel_id"),
         "response_type" => "in_channel",
         "username"      => user,
-        "text"          => "#{user} just spotted a #{text}"
+        "text"          => "@here #{user} just spotted a #{text}"
     }.to_json
 end
 
