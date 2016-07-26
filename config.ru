@@ -29,6 +29,7 @@ post '/' do
 
     # Check if the pokemon excists, and return response
     if pokemon_name
+
         pokemon_image   = response["sprites"]["front_default"]
 
         {
