@@ -3,11 +3,14 @@ require 'pry-byebug'
 require 'json'
 require 'httparty'
 
+get '/' do
+    'Welome to slack slash commands'
+end
+
 post '/' do
 
     content_type :json
 
-    # app_token       = "czvnMuWiuu6GkJ3b2U2ancdc"
     app_token       = ENV["APP_TOKEN"]
     client_token    = params.fetch("token")
     text            = params.fetch('text').strip
@@ -26,7 +29,6 @@ post '/' do
 
     # Check if the pokemon excists, and return response
     if pokemon_name
-
         pokemon_image   = response["sprites"]["front_default"]
 
         {
