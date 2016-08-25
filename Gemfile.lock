@@ -11,6 +11,7 @@ GEM
     json (1.8.3)
     method_source (0.8.2)
     multi_xml (0.5.5)
+    newrelic_rpm (3.16.2.321)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -36,6 +37,7 @@ DEPENDENCIES
   foreman
   httparty
   json
+  newrelic_rpm
   pry-byebug
   rack
   sinatra
